@@ -3,6 +3,9 @@ import desktopScreen from './assets/argo-desktop-real.png';
 import logoSquare from './assets/argo-logo-square.png';
 import mobileScreen from './assets/argo-mobile-screen.png';
 
+// Substituir pelo link oficial da página de vendas da Cakto.
+const SALES_URL = '#';
+
 const benefits = [
   ['Tudo centralizado', 'Organize suas principais informações financeiras em um só lugar.'],
   ['Mais clareza', 'Entenda melhor o que entra, o que sai e como está sua rotina financeira.'],
@@ -42,6 +45,20 @@ const faq = [
   ],
 ];
 
+function SalesLink({ children, className = 'button primary' }) {
+  function handleClick(event) {
+    if (SALES_URL === '#') {
+      event.preventDefault();
+    }
+  }
+
+  return (
+    <a className={className} href={SALES_URL} onClick={handleClick}>
+      {children}
+    </a>
+  );
+}
+
 function App() {
   return (
     <main className="site-shell">
@@ -59,7 +76,7 @@ function App() {
           <a href="#oferta">Oferta</a>
           <a href="#faq">FAQ</a>
         </div>
-        <a className="nav-cta" href="#oferta">Acessar</a>
+        <SalesLink className="nav-cta">Acessar</SalesLink>
       </nav>
 
       <section className="hero" id="top">
@@ -73,7 +90,7 @@ function App() {
             Mais organização. Mais clareza. Menos informações espalhadas.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#produto">Quero conhecer o ARGO</a>
+            <SalesLink>Quero conhecer o ARGO</SalesLink>
           </div>
         </div>
 
@@ -108,7 +125,6 @@ function App() {
             <img
               src={mobileScreen}
               alt="Tela real do ARGO Mobile com informações financeiras"
-              loading="lazy"
             />
           </div>
           <div className="desktop-frame">
@@ -119,7 +135,6 @@ function App() {
             <img
               src={desktopScreen}
               alt="Tela real do ARGO Desktop preservada em uma janela de aplicativo"
-              loading="lazy"
             />
           </div>
         </div>
@@ -157,7 +172,7 @@ function App() {
             ))}
           </div>
           <div className="section-action align-right">
-            <a className="button primary" href="#oferta">Quero começar minha organização</a>
+            <SalesLink>Quero começar minha organização</SalesLink>
           </div>
         </div>
       </section>
@@ -177,7 +192,7 @@ function App() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a className="button primary wide-button" href="#faq">Quero acessar o ARGO</a>
+            <SalesLink className="button primary wide-button">Quero acessar o ARGO</SalesLink>
           </div>
         </div>
       </section>
@@ -200,7 +215,7 @@ function App() {
       <section className="final-cta">
         <h2>Comece a organizar sua vida financeira.</h2>
         <p>Centralize suas informações e tenha mais clareza para acompanhar seu dinheiro.</p>
-        <a className="button primary" href="#oferta">Quero acessar o ARGO</a>
+        <SalesLink>Quero acessar o ARGO</SalesLink>
       </section>
     </main>
   );

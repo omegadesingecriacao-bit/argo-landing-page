@@ -546,6 +546,10 @@ h3 {
     padding-top: 58px;
   }
 
+  .hero::after {
+    opacity: 0.55;
+  }
+
   .device-showcase {
     grid-template-columns: 1fr;
   }
@@ -581,8 +585,8 @@ h3 {
   }
 
   .nav-cta {
-    min-height: 42px;
-    padding: 0 14px;
+    min-height: 46px;
+    padding: 0 16px;
   }
 
   .hero {
@@ -590,16 +594,40 @@ h3 {
     padding: 48px 0 54px;
   }
 
+  .hero::after {
+    right: -46vw;
+    width: 92vw;
+    height: 92vw;
+    opacity: 0.34;
+  }
+
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2.58rem, 13vw, 3rem);
   }
 
   h2 {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 9vw, 2.2rem);
   }
 
   .hero-actions {
     display: grid;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 18px;
+    text-align: center;
+  }
+
+  .hero-phone img,
+  .phone-frame img {
+    width: min(300px, 100%);
+  }
+
+  .desktop-frame {
+    width: calc(100% + 8px);
+    margin-left: -4px;
   }
 
   .section-panel,
@@ -626,5 +654,50 @@ h3 {
 
   .desktop-chrome small {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar,
+  .hero,
+  .section-panel,
+  .product-section,
+  .benefits-section,
+  .steps-section,
+  .offer-section,
+  .faq-section,
+  .final-cta {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .brand-mark {
+    gap: 9px;
+  }
+
+  .brand-mark img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-mark span {
+    font-size: 0.92rem;
+  }
+
+  .nav-cta {
+    min-height: 44px;
+    padding: 0 12px;
+  }
+
+  h1 {
+    font-size: 2.42rem;
+  }
+
+  .hero-lead {
+    font-size: 1.08rem;
+  }
+
+  .solution-strip {
+    font-size: 1.05rem;
+    padding: 18px;
   }
 }
