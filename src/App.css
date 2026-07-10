@@ -1,16 +1,12 @@
 :root {
   color-scheme: dark;
   --bg: #03070b;
-  --bg-soft: #07110f;
   --panel: rgba(255, 255, 255, 0.075);
-  --panel-strong: rgba(255, 255, 255, 0.12);
   --line: rgba(255, 255, 255, 0.14);
   --text: #f4f8f6;
   --muted: #a8b7b1;
   --soft: #d6dfdb;
   --green: #15d66f;
-  --green-deep: #0a8f4d;
-  --navy: #071120;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -31,8 +27,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 14% 8%, rgba(18, 214, 111, 0.2), transparent 26rem),
-    radial-gradient(circle at 82% 18%, rgba(21, 214, 111, 0.1), transparent 28rem),
+    radial-gradient(circle at 12% 8%, rgba(18, 214, 111, 0.2), transparent 25rem),
+    radial-gradient(circle at 84% 18%, rgba(21, 214, 111, 0.1), transparent 28rem),
     linear-gradient(180deg, #03070b 0%, #08100f 48%, #03070b 100%);
 }
 
@@ -63,10 +59,10 @@ img {
   max-width: 780px;
   overflow: auto;
   padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
-  color: #15d66f;
+  color: var(--green);
 }
 
 .site-shell {
@@ -95,7 +91,6 @@ img {
   gap: 12px;
   min-width: 0;
   font-weight: 800;
-  letter-spacing: 0;
 }
 
 .brand-mark img {
@@ -143,7 +138,6 @@ img {
   white-space: nowrap;
   transition:
     transform 180ms ease,
-    border-color 180ms ease,
     box-shadow 180ms ease;
 }
 
@@ -180,12 +174,12 @@ summary:focus-visible {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
-  gap: 42px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.58fr);
+  gap: 58px;
   align-items: center;
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 74px 0 76px;
+  padding: 76px 0 86px;
 }
 
 .hero::after {
@@ -201,13 +195,28 @@ summary:focus-visible {
 }
 
 .hero-copy,
-.product-stage {
+.hero-phone {
   position: relative;
   z-index: 1;
 }
 
+.hero-phone {
+  display: grid;
+  justify-items: center;
+}
+
+.hero-phone img,
+.phone-frame img {
+  width: min(310px, 100%);
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 36px;
+  background: #061019;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.48);
+}
+
 .eyebrow {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--green);
   font-size: 0.78rem;
   font-weight: 900;
@@ -223,67 +232,103 @@ p {
 }
 
 h1 {
-  max-width: 780px;
+  max-width: 820px;
   margin-bottom: 22px;
-  font-size: clamp(3rem, 5.8vw, 5.8rem);
+  font-size: clamp(3.2rem, 6vw, 6rem);
   line-height: 0.96;
   letter-spacing: 0;
 }
 
 h2 {
   color: var(--text);
-  font-size: clamp(2rem, 4vw, 4.2rem);
-  line-height: 1.03;
+  font-size: clamp(2rem, 4vw, 4.05rem);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
 h3 {
-  font-size: 1.2rem;
-  line-height: 1.2;
+  font-size: 1.16rem;
+  line-height: 1.22;
 }
 
 .hero-lead {
-  max-width: 690px;
-  margin-bottom: 16px;
+  max-width: 620px;
+  margin-bottom: 12px;
   color: var(--soft);
-  font-size: clamp(1.16rem, 2vw, 1.38rem);
-  line-height: 1.48;
+  font-size: clamp(1.18rem, 2vw, 1.38rem);
+  line-height: 1.45;
 }
 
 .hero-support,
 .section-heading p,
-.problem-pill p,
 .glass-card p,
 .step p,
-.check-card p,
 .offer-card p,
-.guarantee-card p,
-.transformation p,
 .faq-list p,
 .final-cta p {
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.62;
 }
 
 .hero-support {
-  max-width: 620px;
-  font-size: 1.04rem;
+  max-width: 560px;
+  font-size: 1.02rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin: 32px 0 16px;
+  margin-top: 30px;
 }
 
-.microcopy {
-  color: #7d918a;
-  font-size: 0.94rem;
+.section-panel,
+.product-section,
+.benefits-section,
+.steps-section,
+.offer-section,
+.faq-section,
+.final-cta {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 76px 0;
 }
 
-.product-stage {
-  min-height: 520px;
+.section-heading {
+  max-width: 720px;
+}
+
+.section-heading.compact {
+  max-width: 760px;
+}
+
+.section-heading.centered {
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.solution-strip {
+  width: min(760px, 100%);
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid rgba(21, 214, 111, 0.24);
+  border-radius: 8px;
+  color: #dff7e9;
+  background: rgba(21, 214, 111, 0.09);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.device-showcase {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.35fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.phone-frame {
+  display: grid;
+  justify-items: center;
 }
 
 .desktop-frame {
@@ -299,11 +344,6 @@ h3 {
   aspect-ratio: 1920 / 1140;
   object-fit: contain;
   background: #f5f7f8;
-}
-
-.hero-desktop {
-  width: min(720px, 100%);
-  margin-left: auto;
 }
 
 .desktop-chrome {
@@ -331,72 +371,19 @@ h3 {
   letter-spacing: 0.14em;
 }
 
-.phone-mockup {
-  position: absolute;
-  right: 4%;
-  bottom: 0;
-  width: 216px;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 34px;
-  background: #061019;
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.48);
-}
-
-.phone-mockup img {
-  width: 100%;
-  aspect-ratio: 739 / 1600;
-  border-radius: 26px;
-  object-fit: cover;
-}
-
-.section-panel,
-.product-section,
-.controls-section,
-.steps-section,
-.transformation,
-.audience-section,
-.offer-section,
-.guarantee-section,
-.faq-section,
-.final-cta {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 90px 0;
-}
-
-.section-heading {
-  max-width: 720px;
-}
-
-.section-heading.wide {
-  max-width: 960px;
-}
-
-.section-heading.centered {
-  margin: 0 auto 42px;
-  text-align: center;
-}
-
-.problem-grid,
-.control-grid,
-.steps,
-.audience-grid {
+.benefit-grid,
+.steps {
   display: grid;
   gap: 18px;
 }
 
-.problem-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin-top: 32px;
+.benefit-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.problem-pill,
 .glass-card,
 .step,
-.check-card,
 .offer-card,
-.guarantee-card,
 .faq-list details {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -404,109 +391,22 @@ h3 {
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
 }
 
-.problem-pill {
-  display: flex;
-  min-height: 150px;
-  gap: 14px;
-  padding: 22px;
-}
-
-.problem-pill span,
-.check-card span {
-  width: 10px;
-  height: 10px;
-  flex: 0 0 10px;
-  margin-top: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 24px rgba(21, 214, 111, 0.64);
-}
-
-.problem-pill p,
-.check-card p {
-  margin: 0;
-}
-
-.solution-strip,
-.notice {
-  margin-top: 18px;
-  padding: 20px 24px;
-  border: 1px solid rgba(21, 214, 111, 0.22);
-  border-radius: 8px;
-  color: #cfe9dc;
-  background: rgba(21, 214, 111, 0.08);
-}
-
-.dual-product {
-  position: relative;
-  display: grid;
-  grid-template-columns: 0.48fr 1fr;
-  gap: 24px;
-  align-items: center;
-}
-
-.device-card {
-  position: relative;
-}
-
-.device-card > span {
-  display: inline-flex;
-  margin-bottom: 12px;
-  color: var(--green);
-  font-size: 0.78rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
-
-.mobile-device {
-  display: grid;
-  justify-items: center;
-}
-
-.mobile-device img {
-  width: min(270px, 100%);
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 36px;
-  background: #061019;
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.42);
-}
-
-.desktop-device .desktop-frame {
-  width: 100%;
-}
-
-.control-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .glass-card {
-  min-height: 226px;
-  padding: 26px;
+  min-height: 190px;
+  padding: 24px;
 }
 
 .module-icon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 28px;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 24px;
   border-radius: 8px;
   background: rgba(21, 214, 111, 0.12);
   color: var(--green);
   font-size: 0.78rem;
   font-weight: 900;
-}
-
-.section-action {
-  display: flex;
-  justify-content: center;
-  margin-top: 34px;
-}
-
-.section-action.align-right {
-  justify-content: flex-end;
 }
 
 .steps-section {
@@ -521,8 +421,8 @@ h3 {
 }
 
 .step {
-  min-height: 210px;
-  padding: 26px;
+  min-height: 176px;
+  padding: 24px;
 }
 
 .step span {
@@ -530,57 +430,37 @@ h3 {
   place-items: center;
   width: 42px;
   height: 42px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   border-radius: 8px;
   background: var(--green);
   color: #061008;
   font-weight: 900;
 }
 
-.audience-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.check-card {
+.section-action {
   display: flex;
-  gap: 14px;
-  min-height: 112px;
-  padding: 22px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.transformation {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 46px;
-  align-items: center;
-}
-
-.transformation img {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
-.transformation .button {
-  margin-top: 10px;
+.section-action.align-right {
+  justify-content: flex-end;
 }
 
 .offer-card {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 42px;
+  grid-template-columns: 1fr 0.82fr;
+  gap: 40px;
+  align-items: center;
   padding: 34px;
   background:
     linear-gradient(135deg, rgba(21, 214, 111, 0.13), transparent 44%),
     rgba(255, 255, 255, 0.075);
 }
 
-.included-list h3 {
-  margin-bottom: 18px;
-}
-
 .included-list ul {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin: 0 0 24px;
   padding: 0;
@@ -601,37 +481,9 @@ h3 {
   background: var(--green);
 }
 
-.guarantee-card {
-  padding: 34px;
-}
-
-.guarantee-card h2 {
-  max-width: 780px;
-}
-
-.guarantee-card p {
-  max-width: 860px;
-}
-
-.trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.trust-row span {
-  padding: 10px 14px;
-  border: 1px solid rgba(21, 214, 111, 0.22);
-  border-radius: 8px;
-  color: #cfe9dc;
-  background: rgba(21, 214, 111, 0.08);
-  font-weight: 800;
-}
-
 .faq-section {
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
+  grid-template-columns: 0.62fr 1.38fr;
   gap: 46px;
 }
 
@@ -651,13 +503,14 @@ h3 {
 }
 
 .faq-list p {
-  margin: 16px 0 0;
+  max-width: 720px;
+  margin: 14px 0 0;
 }
 
 .final-cta {
   display: grid;
   place-items: center;
-  max-width: 960px;
+  max-width: 900px;
   padding-bottom: 120px;
   text-align: center;
 }
@@ -667,13 +520,13 @@ h3 {
 }
 
 .final-cta p {
-  max-width: 680px;
+  max-width: 620px;
   margin: 0 auto 28px;
 }
 
-@media (max-width: 1120px) {
-  .problem-grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1060px) {
+  .benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -684,9 +537,8 @@ h3 {
 
   .hero,
   .steps-section,
-  .transformation,
-  .faq-section,
-  .offer-card {
+  .offer-card,
+  .faq-section {
     grid-template-columns: 1fr;
   }
 
@@ -694,25 +546,11 @@ h3 {
     padding-top: 58px;
   }
 
-  .product-stage {
-    min-height: 490px;
-  }
-
-  .hero-desktop {
-    margin: 0;
-  }
-
-  .dual-product {
+  .device-showcase {
     grid-template-columns: 1fr;
   }
 
-  .mobile-device {
-    order: 2;
-  }
-
-  .control-grid,
-  .steps,
-  .audience-grid {
+  .steps {
     grid-template-columns: 1fr;
   }
 
@@ -721,23 +559,14 @@ h3 {
   }
 }
 
-@media (max-width: 720px) {
-  .problem-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 680px) {
   .topbar,
   .hero,
   .section-panel,
   .product-section,
-  .controls-section,
+  .benefits-section,
   .steps-section,
-  .transformation,
-  .audience-section,
   .offer-section,
-  .guarantee-section,
   .faq-section,
   .final-cta {
     width: min(100% - 28px, 1180px);
@@ -757,7 +586,8 @@ h3 {
   }
 
   .hero {
-    padding: 48px 0 56px;
+    gap: 34px;
+    padding: 48px 0 54px;
   }
 
   h1 {
@@ -772,48 +602,29 @@ h3 {
     display: grid;
   }
 
-  .product-stage {
-    min-height: 390px;
-  }
-
-  .desktop-chrome small {
-    display: none;
-  }
-
-  .phone-mockup {
-    right: 0;
-    width: 148px;
-    border-radius: 26px;
-  }
-
-  .phone-mockup img {
-    border-radius: 20px;
-  }
-
   .section-panel,
   .product-section,
-  .controls-section,
+  .benefits-section,
   .steps-section,
-  .transformation,
-  .audience-section,
   .offer-section,
-  .guarantee-section,
   .faq-section,
   .final-cta {
-    padding: 62px 0;
+    padding: 58px 0;
   }
 
-  .problem-pill,
+  .benefit-grid,
+  .included-list ul {
+    grid-template-columns: 1fr;
+  }
+
   .glass-card,
   .step,
-  .check-card,
-  .offer-card,
-  .guarantee-card {
+  .offer-card {
     min-height: auto;
     padding: 22px;
   }
 
-  .trust-row {
-    display: grid;
+  .desktop-chrome small {
+    display: none;
   }
 }
