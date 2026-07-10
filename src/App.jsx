@@ -1,3 +1,4 @@
+import React from 'react';
 import brandWide from './assets/argo-brand-wide.png';
 import logoSquare from './assets/argo-logo-square.png';
 import mobileScreen from './assets/argo-mobile-screen.png';
@@ -50,6 +51,8 @@ const faq = [
 ];
 
 function App() {
+  console.info('[ARGO Landing] App render started');
+
   return (
     <main className="site-shell">
       <nav className="topbar" aria-label="Navegação principal">

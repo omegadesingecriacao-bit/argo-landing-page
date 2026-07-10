@@ -46,6 +46,29 @@ img {
   max-width: 100%;
 }
 
+.runtime-error {
+  min-height: 100vh;
+  padding: 48px;
+  background: #03070b;
+  color: #f4f8f6;
+}
+
+.runtime-error h1 {
+  max-width: 780px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.runtime-error pre {
+  max-width: 780px;
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #15d66f;
+}
+
 .site-shell {
   overflow: hidden;
 }
